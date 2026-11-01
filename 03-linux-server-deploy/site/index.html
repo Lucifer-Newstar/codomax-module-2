@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deployed by Navin Jairam M – Codomax Internship</title>
+  <style>
+    :root { --bg: #0f172a; --card: #111c33; --text: #e2e8f0; --muted: #94a3b8; --accent: #22c55e; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 24px;
+    }
+    .card {
+      background: var(--card); border: 1px solid #1e293b; border-radius: 14px;
+      padding: 36px 40px; max-width: 560px; width: 100%;
+    }
+    .status { color: var(--accent); font-weight: 600; letter-spacing: .04em; font-size: .85rem; }
+    h1 { margin: 10px 0 6px; font-size: 1.7rem; }
+    p { color: var(--muted); line-height: 1.55; margin: 0 0 18px; }
+    ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    li { background: #0b1324; border: 1px solid #1e293b; border-radius: 8px; padding: 10px 12px; font-size: .9rem; }
+    li span { display: block; color: var(--muted); font-size: .75rem; }
+    footer { margin-top: 22px; font-size: .8rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="status">● SERVER ONLINE</div>
+    <h1>Deployed by Navin Jairam M – Codomax Internship</h1>
+    <p>Task 3: Linux server deployment. This page is served by nginx on an AlmaLinux VM,
+       set up with key-only SSH, firewalld and SELinux in enforcing mode.</p>
+    <ul>
+      <li><span>OS</span>AlmaLinux 9</li>
+      <li><span>Web server</span>nginx</li>
+      <li><span>Firewall</span>firewalld (ssh, http, https)</li>
+      <li><span>Access</span>SSH keys only, no root login</li>
+    </ul>
+    <footer>Create VM → Configure Linux → Secure Access → Deploy Service → Test Connectivity</footer>
+  </main>
+</body>
+</html>

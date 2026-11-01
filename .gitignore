@@ -1,0 +1,21 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Logs and temp output from the scripts
+*.log
+*.tmp
+/tmp/
+
+# Never commit keys or secrets
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.ppk
+.env
+secrets/

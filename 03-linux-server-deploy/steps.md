@@ -72,6 +72,7 @@ Log in as `devuser` from now on; `sudo whoami` should print `root`.
    KbdInteractiveAuthentication no
    PubkeyAuthentication yes
    MaxAuthTries 3
+   PermitEmptyPasswords no
    X11Forwarding no
    ```
    The script backs up the config, writes a drop-in in `/etc/ssh/sshd_config.d/`, checks it with `sshd -t`, and only then restarts `sshd`. It refuses to run if the sudo user has no `authorized_keys` (so I can't lock myself out).

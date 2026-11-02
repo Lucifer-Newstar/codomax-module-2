@@ -1,16 +1,23 @@
 # Screenshots
 
-Add your screenshots here (PNG/JPG), one per stage, for example:
+My own run of Task 3, on **AlmaLinux 9.8 under WSL2** on my Windows laptop (2 Nov 2026).
+Machine/boot IDs and server IPs are blurred.
 
-| File | What it should show |
+| File | What it shows |
 |---|---|
-| `01-vm-created.png` | VM settings / EC2 instance running |
-| `02-configured.png` | `hostnamectl`, `timedatectl`, `id devuser` |
-| `03-ssh-key-login.png` | key login working, `ssh root@...` refused |
-| `04-sshd-hardened.png` | `sudo sshd -T \| grep -Ei 'permitrootlogin\|passwordauthentication'` |
-| `05-firewall.png` | `sudo firewall-cmd --list-all` |
-| `06-nginx-running.png` | `systemctl status nginx` and `ss -tlnp` |
-| `07-site-in-browser.png` | the deployed page opened from the host machine |
-| `08-test-results.png` | `test_connectivity.sh` output with all PASS |
+| `02-configured.png` | `hostnamectl`, `timedatectl`, `id`: hostname `web01.codomax.local`, IST timezone, user in `wheel` |
+| `03-ssh-key-login.png` | `harden_ssh.sh` run (backup, `sshd -t`, restart), key login works, `ssh root@localhost` denied |
+| `04-sshd-hardened.png` | `sshd -T`: `permitrootlogin no`, `passwordauthentication no` |
+| `05-firewall.png` | `firewall_setup.sh` + `firewall-cmd --list-all` (ssh, http, https) |
+| `06a-provision.png` | `provision.sh --skip-update` output |
+| `06b-nginx-running.png` | `systemctl status nginx` |
+| `06c-ports.png` | `ss -tlnp`: nginx on :80, sshd on :22 |
+| `07-site-in-browser.png` | the deployed page opened from Windows |
+| `08-test-results.png` | `test_connectivity.sh`: 12 passed, 0 failed |
 
-Crop out public IPs/hostnames you don't want in a public repo.
+## Notes from running it on WSL2 instead of a VM
+
+- WSL2 is a lightweight VM managed by Windows, so there is no separate "VM created" screenshot.
+- `System clock synchronized: no` is expected: Windows keeps the time for WSL.
+- firewalld runs and the rules are set, but WSL2 traffic comes in through Windows' own networking, so on WSL2 the zone shows no interfaces and the rules don't filter much. On a real VM or EC2 they would.
+- The page text describes the target setup (an AlmaLinux VM with SELinux enforcing). On this WSL2 run SELinux was not enforcing.
